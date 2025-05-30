@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terzaxis - African-Inspired Property Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Colors */
+        :root {
+            --african-red: #C5283D;
+            --african-yellow: #F3A712;
+            --african-green: #2D5D2A;
+            --african-blue: #1F2D4D;
+            --african-gold: #E6AF2E;
+            --african-ivory: #FAF7F0;
+            --african-earth: #7A542E;
+            --text-dark: #333333;
+            --transition: all 0.4s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--african-ivory);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--african-yellow);
+            color: var(--african-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--african-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(243, 167, 18, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--african-green);
+            border: 2px solid var(--african-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--african-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 247, 240, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--african-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--african-yellow);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--african-blue);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--african-yellow);
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--african-green);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .contact-btn {
+            background: var(--african-green);
+            color: white;
+            border: 2px solid var(--african-green);
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: var(--african-green);
+            transform: translateY(-3px);
+        }
+
+        .login-btn {
+            background: var(--african-yellow);
+            color: var(--african-blue);
+            border: 2px solid var(--african-yellow);
+        }
+
+        .login-btn:hover {
+            background: transparent;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(45,93,42,0.1) 0%, rgba(250,247,240,0.8) 100%);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--african-green);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 span {
+            color: var(--african-yellow);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span:after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(243, 167, 18, 0.3);
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--african-blue);
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 40px auto 0;
+            transition: var(--transition);
+        }
+
+        .search-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .search-container h3 {
+            color: var(--african-green);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .search-box {
+            display: flex;
+            background: #f8f8f8;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--african-yellow);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            background: transparent;
+        }
+
+        .search-button {
+            background: var(--african-yellow);
+            color: var(--african-blue);
+            border: none;
+            padding: 0 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            background: var(--african-green);
+            color: white;
+        }
+
+        /* Background Slideshow */
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            animation: kenburns 20s infinite;
+        }
+
+        .slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            animation-delay: 0s;
+        }
+
+        .slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            animation-delay: 5s;
+        }
+
+        .slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            animation-delay: 10s;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(31, 45, 77, 0.7), rgba(45, 93, 42, 0.5));
+            z-index: 2;
+        }
+
+        @keyframes kenburns {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+            10% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            40% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.3);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--african-ivory) 0%, #f0ede6 100%);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--african-green);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--african-yellow);
+            border-radius: 3px;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: var(--african-blue);
+            font-size: 1.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--african-green) 0%, var(--african-blue) 100%);
+            z-index: -1;
+        }
+
+        .service-card:nth-child(2) .service-icon:before {
+            background: linear-gradient(135deg, var(--african-red) 0%, var(--african-earth) 100%);
+        }
+
+        .service-card:nth-child(3) .service-icon:before {
+            background: linear-gradient(135deg, var(--african-yellow) 0%, var(--african-gold) 100%);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--african-green);
+        }
+
+        .service-content p {
+            margin-bottom: 25px;
+            color: var(--african-blue);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--african-yellow);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--african-green);
+            transform: translateX(5px);
+        }
+
+        .service-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 100px 0;
+            background: linear-gradient(45deg, var(--african-green) 0%, #1a3e18 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="%232D5D2A" opacity="0.2"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .expertise-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--african-yellow);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--african-ivory);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--african-green);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--african-blue);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--african-blue);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--african-yellow);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--african-yellow);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--african-yellow);
+            transform: translateY(-3px);
+            color: var(--african-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-box input {
+                padding: 15px;
+            }
+            
+            .search-button {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">TERZ<span>AXIS</span></div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home Search</a></li>
+                    <li><a href="#">Living Here</a></li>
+                    <li><a href="#">Expertise</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-buttons">
+                <button class="nav-button contact-btn">Contact Us</button>
+                <button class="nav-button login-btn">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="slideshow">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="overlay"></div>
+        </div>
+        
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Find Your New <span>African Home</span></h1>
+                <p>Discover Where You Belong with Terzaxis Property Management</p>
+                
+                <div class="search-container">
+                    <h3>Search Our Properties</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Enter city, neighborhood, or address...">
+                        <button class="search-button">SEARCH <i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Property Services</h2>
+                <p>Comprehensive solutions for all your real estate needs across Africa</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Property Management</h3>
+                        <p>Professional management services for residential and commercial properties across Africa. We handle everything from tenant relations to maintenance.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Real Estate Investment</h3>
+                        <p>Strategic investment opportunities in Africa's fastest-growing markets. We identify high-potential properties for maximum returns.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Development Projects</h3>
+                        <p>From concept to completion, we develop innovative residential and commercial spaces that celebrate African design and functionality.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <p>Specialized knowledge in African real estate markets</p>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>Urban Development</h3>
+                    <p>Transforming cityscapes with sustainable, modern living spaces that respect African architectural traditions.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Investment Strategy</h3>
+                    <p>Identifying high-growth opportunities in emerging African markets for maximum returns.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <h3>Community Building</h3>
+                    <p>Creating vibrant communities that blend modern amenities with African cultural values.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Properties Managed</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">African Countries</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">$1.2B</div>
+                    <div class="stat-label">Assets Managed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TERZAXIS</h3>
+                    <p>Driving success for our partners and the places people call home across Africa.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home Search</a></li>
+                        <li><a href="#">Living Here</a></li>
+                        <li><a href="#">Expertise</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#">Real Estate Investment</a></li>
+                        <li><a href="#">Development Projects</a></li>
+                        <li><a href="#">Commercial Properties</a></li>
+                        <li><a href="#">Residential Leasing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Bole Road, Addis Ababa, Ethiopia</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@terzaxis.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Terzaxis. All rights reserved. Proudly African.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Animation for cards
+        const cards = document.querySelectorAll('.service-card, .expertise-card, .stat-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = card.classList.contains('service-card') 
+                    ? 'translateY(-15px)' 
+                    : 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide() {
+            slides.forEach(slide => {
+                slide.style.opacity = 0;
+            });
+            
+            slides[currentSlide].style.opacity = 1;
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+        
+        // Start slideshow
+        showSlide();
+        setInterval(showSlide, 5000);
+    </script>
+</body>
+</html>

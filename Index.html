@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terzaxis | African-Inspired Property Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --african-red: #C5283D;
+            --african-yellow: #F3A712;
+            --african-green: #2D5D2A;
+            --african-blue: #1F2D4D;
+            --african-gold: #E6AF2E;
+            --african-ivory: #FAF7F0;
+            --african-earth: #7A542E;
+            --text-dark: #333333;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--african-ivory);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.8s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            transform-origin: center;
+        }
+
+        .btn-primary {
+            background: var(--african-yellow);
+            color: var(--african-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--african-green);
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(243, 167, 18, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--african-green);
+            border: 2px solid var(--african-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--african-green);
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(45, 93, 42, 0.3);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 247, 240, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--african-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .logo-text:hover {
+            transform: scale(1.03);
+        }
+
+        .logo-text span {
+            color: var(--african-yellow);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--african-blue);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a.active {
+            color: var(--african-green);
+            font-weight: 600;
+        }
+
+        nav a.active:after {
+            width: 100%;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--african-yellow);
+            transition: width 0.3s ease-out;
+        }
+
+        nav a:hover {
+            color: var(--african-green);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .contact-btn {
+            background: var(--african-green);
+            color: white;
+            border: 2px solid var(--african-green);
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: var(--african-green);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(45, 93, 42, 0.3);
+        }
+
+        .login-btn {
+            background: var(--african-yellow);
+            color: var(--african-blue);
+            border: 2px solid var(--african-yellow);
+        }
+
+        .login-btn:hover {
+            background: transparent;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(243, 167, 18, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(45,93,42,0.1) 0%, rgba(250,247,240,0.8) 100%);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--african-green);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero h1 span {
+            color: var(--african-yellow);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span:after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(243, 167, 18, 0.3);
+            z-index: -1;
+            transform-origin: left;
+            transform: scaleX(0);
+            animation: underlineExpand 1s ease-out 0.8s forwards;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--african-blue);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 40px auto 0;
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .search-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .search-container h3 {
+            color: var(--african-green);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .search-box {
+            display: flex;
+            background: #f8f8f8;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--african-yellow);
+            transition: var(--transition);
+        }
+
+        .search-box:hover {
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(243, 167, 18, 0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            background: transparent;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            background: rgba(243, 167, 18, 0.05);
+        }
+
+        .search-button {
+            background: var(--african-yellow);
+            color: var(--african-blue);
+            border: none;
+            padding: 0 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            background: var(--african-green);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Background Slideshow */
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            animation: kenburns 20s infinite;
+            filter: brightness(0.8);
+        }
+
+        .slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            animation-delay: 0s;
+        }
+
+        .slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            animation-delay: 5s;
+        }
+
+        .slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            animation-delay: 10s;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(31, 45, 77, 0.7), rgba(45, 93, 42, 0.5));
+            z-index: 2;
+        }
+
+        @keyframes kenburns {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+            10% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            40% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.3);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--african-ivory) 0%, #f0ede6 100%);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--african-green);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--african-yellow);
+            border-radius: 3px;
+            transform-origin: center;
+            transform: scaleX(0);
+            animation: underlineExpand 0.8s ease-out 0.3s forwards;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: var(--african-blue);
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .service-card:nth-child(1) {
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+        .service-card:nth-child(2) {
+            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+        .service-card:nth-child(3) {
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.05);
+        }
+
+        .service-icon:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--african-green) 0%, var(--african-blue) 100%);
+            z-index: -1;
+        }
+
+        .service-card:nth-child(2) .service-icon:before {
+            background: linear-gradient(135deg, var(--african-red) 0%, var(--african-earth) 100%);
+        }
+
+        .service-card:nth-child(3) .service-icon:before {
+            background: linear-gradient(135deg, var(--african-yellow) 0%, var(--african-gold) 100%);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--african-green);
+        }
+
+        .service-content p {
+            margin-bottom: 25px;
+            color: var(--african-blue);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--african-yellow);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--african-green);
+            transform: translateX(5px);
+        }
+
+        .service-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 100px 0;
+            background: linear-gradient(45deg, var(--african-green) 0%, #1a3e18 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="%232D5D2A" opacity="0.2"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .expertise-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .expertise-card:nth-child(1) {
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+        .expertise-card:nth-child(2) {
+            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+        .expertise-card:nth-child(3) {
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--african-yellow);
+            transition: var(--transition);
+        }
+
+        .expertise-card:hover .expertise-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--african-ivory);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .stat-card:nth-child(1) {
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+        .stat-card:nth-child(2) {
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+        .stat-card:nth-child(3) {
+            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+        }
+        .stat-card:nth-child(4) {
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--african-green);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--african-blue);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        #contact-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f0ede6 0%, var(--african-ivory) 100%);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding: 30px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--african-green);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--african-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover .contact-icon {
+            background: var(--african-yellow);
+            transform: scale(1.1);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.7s forwards;
+            transition: var(--transition);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--african-yellow);
+            box-shadow: 0 0 0 3px rgba(243, 167, 18, 0.2);
+        }
+
+        .submit-btn {
+            background: var(--african-yellow);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--african-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(243, 167, 18, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--african-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--african-yellow);
+            transition: width 0.3s ease;
+        }
+
+        .footer-col:hover h3:after {
+            width: 80px;
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--african-yellow);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--african-yellow);
+            transform: translateY(-3px);
+            color: var(--african-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(250, 247, 240, 0.98);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-buttons {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-box input {
+                padding: 15px;
+            }
+            
+            .search-button {
+                padding: 15px;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes underlineExpand {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Page Transition Overlay */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--african-green);
+            z-index: 2000;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            pointer-events: none;
+        }
+        
+        .transition-overlay.active {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+            padding: 100px 0;
+            min-height: 80vh;
+        }
+        
+        .page-content h2 {
+            font-size: 2.8rem;
+            color: var(--african-green);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--african-yellow);
+            border-radius: 3px;
+        }
+        
+        .page-content p {
+            margin-bottom: 20px;
+            color: var(--african-blue);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .back-btn {
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            color: var(--african-green);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .back-btn:hover {
+            color: var(--african-blue);
+            transform: translateX(-5px);
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .back-btn:hover i {
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#" class="logo-text" id="homeLink">TERZ<span>AXIS</span></a>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#" class="active" id="homeNav">Home</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#" id="aboutNav">About</a></li>
+                    <li><a href="#" id="careersNav">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-buttons">
+                <button class="nav-button contact-btn">Contact Us</button>
+                <button class="nav-button login-btn">Login</button>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="slideshow">
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="overlay"></div>
+            </div>
+            
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Find Your New <span>African Home</span></h1>
+                    <p>Discover Where You Belong with Terzaxis Property Management</p>
+                    
+                    <div class="search-container">
+                        <h3>Search Our Properties</h3>
+                        <div class="search-box">
+                            <input type="text" placeholder="Enter city, neighborhood, or address...">
+                            <button class="search-button">SEARCH <i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Property Services</h2>
+                    <p>Comprehensive solutions for all your real estate needs across Africa</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Property Management</h3>
+                            <p>Professional management services for residential and commercial properties across Africa. We handle everything from tenant relations to maintenance.</p>
+                            <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Real Estate Investment</h3>
+                            <p>Strategic investment opportunities in Africa's fastest-growing markets. We identify high-potential properties for maximum returns.</p>
+                            <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Development Projects</h3>
+                            <p>From concept to completion, we develop innovative residential and commercial spaces that celebrate African design and functionality.</p>
+                            <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="expertise" id="expertise">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Expertise</h2>
+                    <p>Specialized knowledge in African real estate markets</p>
+                </div>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3>Urban Development</h3>
+                        <p>Transforming cityscapes with sustainable, modern living spaces that respect African architectural traditions.</p>
+                    </div>
+                    
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3>Investment Strategy</h3>
+                        <p>Identifying high-growth opportunities in emerging African markets for maximum returns.</p>
+                    </div>
+                    
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-people-arrows"></i>
+                        </div>
+                        <h3>Community Building</h3>
+                        <p>Creating vibrant communities that blend modern amenities with African cultural values.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Properties Managed</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">African Countries</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">$200M</div>
+                        <div class="stat-label">Assets Managed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Connect With Us</h2>
+                    <p>Reach out to learn how Terzaxis can transform your property management experience</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Our Location</h4>
+                                <p>Bole Road, Addis Ababa, Ethiopia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>+251 11 123 4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>info@terzaxis.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="Enter your name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Enter your email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" rows="5" placeholder="How can we help you?"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- About Page -->
+    <div class="page-content" id="aboutPage">
+        <div class="container">
+            <h2>About Terzaxis</h2>
+            <p>Founded in 2015, Terzaxis has grown from a small real estate venture in Addis Ababa to a pan-African property management leader. Our journey reflects Africa's growth story - ambitious, innovative, and deeply rooted in community values.</p>
+            
+            <p>We blend traditional African architectural wisdom with modern property management practices to create spaces that resonate with the continent's diverse cultures while meeting global standards.</p>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Our Mission</h2>
+            </div>
+            
+            <p>To transform Africa's property landscape by creating sustainable, culturally resonant spaces that empower communities and drive economic growth.</p>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Our Values</h2>
+            </div>
+            
+            <div class="services-grid" style="margin-top: 30px;">
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, var(--african-blue) 0%, var(--african-green) 100%);">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Community First</h3>
+                        <p>We prioritize community impact in every development, ensuring our properties enrich neighborhoods.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, var(--african-earth) 0%, var(--african-gold) 100%);">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Sustainability</h3>
+                        <p>Ecologically responsible development using locally sourced materials and green technologies.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, var(--african-red) 0%, var(--african-yellow) 100%);">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Innovation</h3>
+                        <p>Pioneering property management solutions tailored to Africa's unique challenges and opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="back-btn" id="backFromAbout"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+    
+    <!-- Careers Page -->
+    <div class="page-content" id="careersPage">
+        <div class="container">
+            <h2>Build Africa's Future With Us</h2>
+            <p>Join our mission to transform African real estate through innovative property management and community-focused development.</p>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Current Openings</h2>
+                <p>Explore opportunities to grow with Africa's leading property management company</p>
+            </div>
+            
+            <div class="services-grid" style="margin-top: 30px;">
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, var(--african-green) 0%, var(--african-blue) 100%);">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Property Manager</h3>
+                        <p>Addis Ababa, Ethiopia</p>
+                        <p>Lead our residential portfolio management with a focus on tenant satisfaction and property value enhancement.</p>
+                        <a href="#" class="service-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, var(--african-red) 0%, var(--african-earth) 100%);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Investment Analyst</h3>
+                        <p>Nairobi, Kenya</p>
+                        <p>Identify and evaluate high-potential real estate investments across East African markets.</p>
+                        <a href="#" class="service-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, var(--african-yellow) 0%, var(--african-gold) 100%);">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Development Architect</h3>
+                        <p>Accra, Ghana</p>
+                        <p>Design innovative residential spaces that blend modern functionality with African aesthetics.</p>
+                        <a href="#" class="service-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Why Join Terzaxis?</h2>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>Pan-African Impact</h3>
+                    <p>Work across multiple African markets and contribute to the continent's development.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Growth Opportunities</h3>
+                    <p>Comprehensive training programs and clear career progression paths.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Culture</h3>
+                    <p>Join a diverse team that values innovation, collaboration, and African heritage.</p>
+                </div>
+            </div>
+            
+            <a href="#" class="back-btn" id="backFromCareers"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>TERZAXIS</h3>
+                    <p>Driving success for our partners and the places people call home across Africa.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" id="footerHome">Home</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
+                        <li><a href="#" id="footerAbout">About Us</a></li>
+                        <li><a href="#" id="footerCareers">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#">Real Estate Investment</a></li>
+                        <li><a href="#">Development Projects</a></li>
+                        <li><a href="#">Commercial Properties</a></li>
+                        <li><a href="#">Residential Leasing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Bole Road, Addis Ababa, Ethiopia</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@terzaxis.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Terzaxis. All rights reserved. Proudly African.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const mainContent = document.getElementById('mainContent');
+        const aboutPage = document.getElementById('aboutPage');
+        const careersPage = document.getElementById('careersPage');
+        const aboutNav = document.getElementById('aboutNav');
+        const careersNav = document.getElementById('careersNav');
+        const homeLink = document.getElementById('homeLink');
+        const homeNav = document.getElementById('homeNav');
+        const backFromAbout = document.getElementById('backFromAbout');
+        const backFromCareers = document.getElementById('backFromCareers');
+        const footerHome = document.getElementById('footerHome');
+        const footerAbout = document.getElementById('footerAbout');
+        const footerCareers = document.getElementById('footerCareers');
+        const transitionOverlay = document.getElementById('transitionOverlay');
+        
+        // Navigation Functions
+        function navigateToPage(targetPage) {
+            transitionOverlay.classList.add('active');
+            
+            setTimeout(() => {
+                // Hide all pages
+                mainContent.style.display = 'none';
+                aboutPage.style.display = 'none';
+                careersPage.style.display = 'none';
+                
+                // Show target page
+                targetPage.style.display = 'block';
+                
+                // Update active nav
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                
+                if (targetPage === aboutPage) {
+                    aboutNav.classList.add('active');
+                } else if (targetPage === careersPage) {
+                    careersNav.classList.add('active');
+                } else {
+                    homeNav.classList.add('active');
+                }
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('active');
+                }, 100);
+            }, 600);
+        }
+        
+        // Event Listeners
+        aboutNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(aboutPage);
+        });
+        
+        careersNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(careersPage);
+        });
+        
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(mainContent);
+        });
+        
+        homeNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(mainContent);
+        });
+        
+        backFromAbout.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(mainContent);
+        });
+        
+        backFromCareers.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(mainContent);
+        });
+        
+        footerHome.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(mainContent);
+        });
+        
+        footerAbout.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(aboutPage);
+        });
+        
+        footerCareers.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(careersPage);
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('#menuToggle');
+        const navMenu = document.querySelector('#navMenu');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                menuToggle.querySelector('i').classList.toggle('fa-bars');
+                menuToggle.querySelector('i').classList.toggle('fa-times');
+            });
+        }
+
+        // Card hover animations
+        const cards = document.querySelectorAll('.service-card, .expertise-card, .stat-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if (card.classList.contains('service-card')) {
+                    card.style.transform = 'translateY(-15px)';
+                } else if (card.classList.contains('expertise-card')) {
+                    card.style.transform = 'translateY(-10px)';
+                } else {
+                    card.style.transform = 'translateY(-10px)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Background slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide() {
+            slides.forEach(slide => {
+                slide.style.opacity = 0;
+            });
+            
+            slides[currentSlide].style.opacity = 1;
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+
+        // Start slideshow
+        if (slides.length > 0) {
+            showSlide();
+            setInterval(showSlide, 5000);
+        }
+
+        // Search form functionality
+        const searchForm = document.querySelector('.search-box');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchInput = this.querySelector('input[type="text"]');
+                const searchTerm = searchInput.value.trim();
+                
+                if (searchTerm) {
+                    alert(`Searching for: ${searchTerm}`);
+                    searchInput.value = '';
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                    }
+                }
+            });
+        });
+
+        // Fixed Contact Us button functionality
+        const contactBtn = document.querySelector('.contact-btn');
+        if (contactBtn) {
+            contactBtn.addEventListener('click', () => {
+                const contactSection = document.getElementById('contact-section');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback to bottom of page
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Form validation
+                const nameInput = this.querySelector('#name');
+                const emailInput = this.querySelector('#email');
+                const messageInput = this.querySelector('#message');
+                let isValid = true;
+                
+                // Reset errors
+                this.querySelectorAll('.error').forEach(el => el.remove());
+                
+                // Name validation
+                if (!nameInput.value.trim()) {
+                    isValid = false;
+                    showError(nameInput, 'Name is required');
+                }
+                
+                // Email validation
+                if (!emailInput.value.trim()) {
+                    isValid = false;
+                    showError(emailInput, 'Email is required');
+                } else if (!isValidEmail(emailInput.value)) {
+                    isValid = false;
+                    showError(emailInput, 'Please enter a valid email');
+                }
+                
+                // Message validation
+                if (!messageInput.value.trim()) {
+                    isValid = false;
+                    showError(messageInput, 'Message is required');
+                }
+                
+                if (isValid) {
+                    // In a real application, this would send the form data to a server
+                    const submitBtn = this.querySelector('.submit-btn');
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        this.reset();
+                        submitBtn.textContent = 'Message Sent!';
+                        submitBtn.style.backgroundColor = '#2D5D2A';
+                        
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Send Message';
+                            submitBtn.disabled = false;
+                            submitBtn.style.backgroundColor = '#F3A712';
+                        }, 2000);
+                    }, 1500);
+                }
+            });
+        }
+
+        // Helper function to show form errors
+        function showError(input, message) {
+            const error = document.createElement('div');
+            error.className = 'error';
+            error.textContent = message;
+            error.style.color = '#C5283D';
+            error.style.fontSize = '0.9rem';
+            error.style.marginTop = '5px';
+            input.parentNode.appendChild(error);
+        }
+
+        // Helper function to validate email
+        function isValidEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Stats counter animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.stats');
+
+        function animateStats() {
+            statNumbers.forEach(stat => {
+                const target = +stat.textContent.replace(/,/g, '');
+                const duration = 2000;
+                const increment = target / (duration / 16); // 16ms per frame
+                
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        stat.textContent = formatNumber(target);
+                    } else {
+                        stat.textContent = formatNumber(Math.floor(current));
+                    }
+                }, 16);
+            });
+        }
+
+        // Format numbers with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Initialize stats animation when section is in view
+        if (statsSection && statNumbers.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(statsSection);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+        }
+
+        // Initialize animations on scroll
+        const animatedElements = document.querySelectorAll('.section-header, .service-card, .expertise-card, .stat-card, .contact-info, .contact-form');
+        if (animatedElements.length > 0) {
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                animationObserver.observe(el);
+            });
+        }
+    </script>
+</body>
+</html>
